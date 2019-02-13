@@ -36,48 +36,48 @@ class User(UserMixin,db.Model):
     def __repr__(self):
         return f'User {self.username}'
 
-# class Role(db.Model):
-#     __tablename__='roles'
+class Role(db.Model):
+    __tablename__='roles'
 
-#     id = db.Column(db.Integer,primary_key = True)
-#     name = db.Column(db.String(255))
-#     users = db.relationship('User',backref = 'role',lazy="dynamic")
+    id = db.Column(db.Integer,primary_key = True)
+    name = db.Column(db.String(255))
+    users = db.relationship('User',backref = 'role',lazy="dynamic")
 
-#     def __repr__(self):
-#         return f'User {self.name}'
+    def __repr__(self):
+        return f'User {self.name}'
 
 
-# class Pitch(db.Model):
-#     __tablename__='pitches'
-#     id = db.Column(db.Integer,primary_key = True)
-#     title = db.Column(db.String(200))
-#     pitch = db.Column(db.String(1000))
-#     posted = db.Column(db.DateTime,default=datetime.utcnow)
-#     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+class Pitch(db.Model):
+    __tablename__='pitches'
+    id = db.Column(db.Integer,primary_key = True)
+    title = db.Column(db.String(200))
+    pitch = db.Column(db.String(1000))
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
    
 
 
 
-#     def save_pitch(self):
-#         db.session.add(self)
-#         db.session.commit()
+    def save_pitch(self):
+        db.session.add(self)
+        db.session.commit()
 
-#     @classmethod
-#     def get_pitches(cls,id):
-#         pitches = Pitch.query.order_by(Pitch.posted.desc())
-#         return pitches
-
-
+    @classmethod
+    def get_pitches(cls,id):
+        pitches = Pitch.query.order_by(Pitch.posted.desc())
+        return pitches
 
 
-# class Comment(db.Model):
 
-#     __tablename__='comments'
-#     id = db.Column(db.Integer,primary_key = True)
-#     comment = db.Column(db.String(240))
-#     posted = db.Column(db.DateTime,default=datetime.utcnow)
-#     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
-#     pitch_id=db.Column(db.Integer,db.ForeignKey("pitches.id"))
+
+class Comment(db.Model):
+
+    __tablename__='comments'
+    id = db.Column(db.Integer,primary_key = True)
+    comment = db.Column(db.String(240))
+    posted = db.Column(db.DateTime,default=datetime.utcnow)
+    user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
+    pitch_id=db.Column(db.Integer,db.ForeignKey("pitches.id"))
 
     # def __init__(self,id,title,comment):
     #     self.id = id

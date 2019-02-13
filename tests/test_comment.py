@@ -7,7 +7,7 @@ class CommentModelTest(unittest.TestCase):
 
     def setUp(self):
             self.user_James = User(username = 'kenneth',password = 'kentoz', email = 'kenny@ms.com')
-            self.new_comment = Comment(comment='This movie is the best thing since sliced bread',user = self.user_Carol,pitch_id=12 )
+            self.new_comment = Comment(comment='This movie is the best thing since sliced bread',user = self.user_kenneth,pitch_id=12 )
 
     def tearDown(self):
             Comment.query.delete()
@@ -15,7 +15,7 @@ class CommentModelTest(unittest.TestCase):
 
     def test_check_instance_variable(self):
             self.assertEquals(self.new_comment.comment,Great)
-            self.assertEquals(self.new_comment.user,self.user_Carol)
+            self.assertEquals(self.new_comment.user,self.user_kenneth)
             self.assertEquals(self.new_comment.pitch_id,12)
 
     def test_save_comment(self):
