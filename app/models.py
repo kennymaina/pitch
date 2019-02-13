@@ -1,8 +1,8 @@
-# from . import db
-# from werkzeug.security import generate_password_hash,check_password_hash
-# from flask_login import UserMixin
-# from . import login_manager
-# from datetime import datetime
+from . import db
+from werkzeug.security import generate_password_hash,check_password_hash
+from flask_login import UserMixin
+from . import login_manager
+from datetime import datetime
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -19,24 +19,22 @@ class User(UserMixin,db.Model):
     bio = db.Column(db.String(255))
     profile_pic_path = db.Column(db.String())
     pitches=db.relationship('Pitch',backref = 'user',lazy="dynamic")
-    # comments = db.relationship('Comment',backref = 'user',lazy = "dynamic")
-    # post_likes = db.relationship('PostLikes', backref=db.backref('user', lazy='joined'),
-                                 # lazy='dynamic', cascade='all, delete-orphan')
+   
 
-    @property
-    def password(self):
-        raise AttributeError('You cannot read the password attribute')
+    # @property
+    # def password(self):
+    #     raise AttributeError('You cannot read the password attribute')
 
-    @password.setter
-    def password(self, password):
-        self.pass_secure = generate_password_hash(password)
+    # @password.setter
+    # def password(self, password):
+    #     self.pass_secure = generate_password_hash(password)
 
 
-    def verify_password(self,password):
-        return check_password_hash(self.pass_secure,password)
+    # def verify_password(self,password):
+    #     return check_password_hash(self.pass_secure,password)
 
-    def __repr__(self):
-        return f'User {self.username}'
+    # def __repr__(self):
+    #     return f'User {self.username}'
 
 class Role(db.Model):
     __tablename__='roles'
@@ -56,14 +54,7 @@ class Pitch(db.Model):
     pitch = db.Column(db.String(1000))
     posted = db.Column(db.DateTime,default=datetime.utcnow)
     user_id = db.Column(db.Integer,db.ForeignKey("users.id"))
-    # comments= db.relationship('Comment', backref='title', lazy='dynamic')
-        # ser_likes = db.relationship('PostLikes', backref=db.backref('post', lazy='joined'),
-        #                          lazy='dynamic', cascade='all, delete-orphan')
-    # def __init__(self,id,title,pitch):
-    #     self.id = id
-    #     self.title = title
-    #
-    #     self.pitch = pitch
+   
 
 
 
