@@ -1,4 +1,4 @@
-# PITCH APPLICATION
+<!-- # PITCH APPLICATION
 Python 3.6 Application
 
 ## By kenny maina
@@ -36,4 +36,4 @@ copies of the Software, and to permit persons to whom the Software is
 furnished to do so, subject to the following conditions:
 
 The above copyright notice and this permission notice shall be included in
-all copies or substantial portions of the Software.
+all copies or substantial portions of the Software. -->
