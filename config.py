@@ -29,17 +29,17 @@ class TestConfig(Config):
 
 
 
-# class DevConfig(Config):
-#     '''
-#     Development  configuration child class
+class DevConfig(Config):
+    '''
+    Development  configuration child class
 
-#     Args:
-#         Config: The parent configuration class with General configuration settings
-#     '''
+    Args:
+        Config: The parent configuration class with General configuration settings
+    '''
 
-#     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kenneth:kentoz@localhost/pitch'
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://kenneth:kentoz@localhost/pitch'
 
-#     DEBUG = True
+    DEBUG = True
 
 
 config_options = {
